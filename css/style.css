@@ -1,34 +1,77 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
-    background: #1f3352;
-    color: aqua;
-    font-family: sans-serif;
+:focus{
+    outline: 5px dotted var(--yellow);
+    outline-offset: 5px;
+}
+
+::selection{
+    background-color: var(--yellow);
+    color: var(--bgColor);
+}
+
+:root {
+    /* bg colors */
+    --bgColor: #333;
+    --bgLightColor: #222;
+
+    /* shadows */
+    --shadow: #0ff;
+
+    /* text colors */
+    --lightColor: #fff;
+    --yellow: #f9ca24;
+    --yellowGreen: #9acd32;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bgColor);
+    font-family: 'Roboto', 'Poppins', sans-serif;
     text-transform: uppercase;
 }
 
-.ring{
+.container{
+    width: 100%;
+    max-width: 1240px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/* ring start */
+
+.ring {
+    width: 250px;
+    height: 250px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 150px;
-    height: 150px;
-    background: transparent;
-    border: 3px solid #0ff;
-    border-radius: 50%;
     display: flex;
-    justify-content: center;align-items: center;
-    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
     letter-spacing: 2px;
-    box-shadow: 0 0 10px #0ff;
-    text-shadow: 0 0 10px #0ff;
+    color: var(--yellow);
+    background: transparent;
+    border: 3px solid var(--yellow);
+    border-radius: 50%;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 10px var(--yellow);
+    box-shadow: 0 0 10px var(--yellow);
 }
 
-.ring::before{
+.ring::before {
     content: '';
     position: absolute;
     top: -3px;
@@ -36,23 +79,13 @@ body{
     width: 100%;
     height: 100%;
     border: 3px solidtransparant;
-    border-top: 3px solid #d800ff;
-    border-right: 3px solid #d800ff;
+    border-top: 3px solid var(--yellowGreen);
+    border-right: 3px solid var(--yellowGreen);
     border-radius: 50%;
     animation: animateCircle 3s linear infinite;
 }
 
-@keyframes animateCircle{
-    0%{
-        transform: rotate(0deg);
-    }
-
-    100%{
-        transform: rotate(360deg);
-    }
-}
-
-span{
+.circle {
     display: block;
     position: absolute;
     top: calc(50% - 2px);
@@ -64,24 +97,81 @@ span{
     animation: animate 3s linear infinite;
 }
 
-span::before{
+.circle::before {
     content: '';
     position: absolute;
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: #d800ff;
+    background: var(--yellowGreen);
     top: -6px;
     right: -9px;
-    box-shadow: 0 0 20px #d800ff;
+    box-shadow: 0 0 20px var(--yellowGreen);
 }
 
-@keyframes animate{
-    0%{
+/* ring end */
+
+
+
+/* footer start */
+
+.footer{
+    width: 100%;
+    position: fixed;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bgLightColor);
+    text-align: center;
+}
+
+.footer__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.footer__title{
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.footer__content{
+    color: var(--yellow);
+    text-transform: none;
+    text-decoration: none;
+}
+
+/* footer end */
+
+
+
+/* @keyframes start */
+
+@keyframes animateCircle {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate {
+    0% {
         transform: rotate(45deg);
     }
 
-    100%{
+    100% {
         transform: rotate(405deg);
     }
 }
+
+/* @keyframes end */
